@@ -9,6 +9,7 @@ public class SoupItem : MonoBehaviour
     private Transform inner;
     private SoupItemList itemList;
 
+    public InventoryLogic inventoryLogic;
     public int index;
 
     // Start is called before the first frame update
@@ -24,7 +25,8 @@ public class SoupItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var sprite = Resources.Load<Sprite>(itemList.inventory[index]);
+        var item = inventoryLogic.GetItem(index);
+        var sprite = item is null ? null : Resources.Load<Sprite>(item.Type);
 
         inner.GetComponent<Image>().sprite = sprite;
 
