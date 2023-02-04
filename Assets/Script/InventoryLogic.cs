@@ -35,14 +35,20 @@ public class InventoryLogic : MonoBehaviour
             {
                 Item item = new Item();
                 item.Id = Inventory.Count;
-                Debug.Log("ID: " + item.Id);
+                // Debug.Log("ID: " + item.Id);
                 item.Name = collision.gameObject.name;
                 item.Type = collision.gameObject.GetComponent<ItemData>().Type;
                 Inventory.Add(item);
-                Debug.Log("Inventory Count: " + Inventory.Count);
+                // Debug.Log("Inventory Count: " + Inventory.Count);
                 collision.gameObject.SetActive(false);
                 Destroy(collision.gameObject);
             }
         }
+    }
+
+    public void DeleteListContent()
+    {
+        Inventory.Clear();
+        // Debug.Log("Inventory Count: " + Inventory.Count);
     }
 }

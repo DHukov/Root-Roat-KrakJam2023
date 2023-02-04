@@ -21,8 +21,8 @@ public class CharacterMovement : MonoBehaviour
         playerLayerInt = LayerMask.NameToLayer("Player");
         platformLayerInt = LayerMask.NameToLayer("Platform");
 
-        Debug.Log(playerLayerInt);
-        Debug.Log(platformLayerInt);
+        // Debug.Log(playerLayerInt);
+        // Debug.Log(platformLayerInt);
     }
     void Update()
     {
