@@ -5,19 +5,31 @@ using UnityEngine;
 public class InventoryLogic : MonoBehaviour
 {
 
-    public List<int> Inventory = new List<int>();
+    public class Item
+    {
+        public int Id;
+        public string Name;
+    }
+
+    public List<Item> Inventory = new List<Item>();
     public int maxItemsCount = 8;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        int layer = LayerMask.NameToLayer("InventoryItem");         
         // Debug.Log("Trigger");
-        if(collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == layer && collision.gameObject.active)
         {
             // Debug.Log("Layer detected");
-            if(Inventory.Count + 1 < maxItemsCount)
+            if (Inventory.Count + 1 <= maxItemsCount)
             {
-                Inventory.Add(Inventory.Count);
-                // Debug.Log("Inventory Count: " + Inventory.Count);
+                Item item = new Item();
+                item.Id = Inventory.Count;
+                Debug.Log("ID: " + item.Id);
+                item.Name = collision.gameObject.name;
+                Inventory.Add(item);
+                Debug.Log("Inventory Count: " + Inventory.Count);
+                collision.gameObject.SetActive(false);
                 Destroy(collision.gameObject);
             }
         }

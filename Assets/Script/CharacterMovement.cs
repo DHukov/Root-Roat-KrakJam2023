@@ -34,7 +34,7 @@ public class CharacterMovement : MonoBehaviour
     {
         if( rb.velocity.y > 0)
         {
-                Debug.Log("acceleration");
+                // Debug.Log("acceleration");
             if (Physics2D.OverlapCircle(ceilingCheck.position, distanceToCeiling, ceilingLayer))
             {
                 Debug.Log("contact");
@@ -44,7 +44,7 @@ public class CharacterMovement : MonoBehaviour
         }
         if (rb.velocity.y < 0)
         {
-                Debug.Log("braking");
+                // Debug.Log("braking");
             Physics2D.IgnoreLayerCollision(6, 7, false);
         }
 
