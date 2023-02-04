@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 1068510439}
   - component: {fileID: 1068510438}
   - component: {fileID: 1068510437}
+  - component: {fileID: 1068510440}
   m_Layer: 5
   m_Name: soupItemChosenLeft
   m_TagString: Untagged
@@ -499,6 +500,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068510435}
   m_CullTransparentMesh: 1
+--- !u!95 &1068510440
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068510435}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6746ffc6e5266d066ae0904e19d498ed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &1165965730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1233,6 +1254,7 @@ GameObject:
   - component: {fileID: 1843486713}
   - component: {fileID: 1843486712}
   - component: {fileID: 1843486711}
+  - component: {fileID: 1843486714}
   m_Layer: 5
   m_Name: soupItemChosenRight
   m_TagString: Untagged
@@ -1310,6 +1332,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843486709}
   m_CullTransparentMesh: 1
+--- !u!95 &1843486714
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843486709}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5fef965f62f122d1cbf8c052fde3fa14, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &2122456151
 GameObject:
   m_ObjectHideFlags: 0

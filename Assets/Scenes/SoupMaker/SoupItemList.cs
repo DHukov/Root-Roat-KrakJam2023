@@ -68,17 +68,33 @@ public class SoupItemList : MonoBehaviour
 
         if (Input.GetAxis("Jump") > 0.1)
         {
-            if (!chooseLock) {
+            if (!chooseLock)
+            {
                 chooseLock = true;
+
                 if (chosenFirstItem)
                 {
+                    itemChosenRight.item = inventory[currentSelectedItem];
                     itemChosenRight.GetComponent<Image>().sprite = Resources.Load<Sprite>(inventory[currentSelectedItem]);
-                    chosenFirstItem = !chosenFirstItem;
+                    chosenFirstItem = false;
+
+                    if (itemChosenLeft.item == itemChosenRight.item)
+                    {
+                        itemChosenLeft.GetComponent<Animator>().Play("Wrong");
+                        itemChosenRight.GetComponent<Animator>().Play("Wrong");
+                    }
+                    else
+                    {
+                        itemChosenLeft.GetComponent<Animator>().Play("OkayLeft");
+                        itemChosenRight.GetComponent<Animator>().Play("OkayRight");
+                    }
                 }
                 else
                 {
+                    itemChosenLeft.item = inventory[currentSelectedItem];
                     itemChosenLeft.GetComponent<Image>().sprite = Resources.Load<Sprite>(inventory[currentSelectedItem]);
-                    chosenFirstItem = !chosenFirstItem;
+                    itemChosenLeft.GetComponent<Animator>().Play("Stop");
+                    chosenFirstItem = true;
                 }
             }
         }
