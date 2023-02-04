@@ -12,15 +12,12 @@ public class SoupItemList : MonoBehaviour
     private bool chosenFirstItem = false;
     private bool chooseLock = false;
 
-    public string[] inventory = new string[8];
+    public InventoryLogic inventoryLogic;
     public int currentSelectedItem = 0;
 
     public SoupItemList()
     {
-        for (int i = 0; i < inventory.Length; i++)
-        {
-            inventory[i] = "carrot";
-        }
+
     }
 
     // Start is called before the first frame update
@@ -74,8 +71,7 @@ public class SoupItemList : MonoBehaviour
 
                 if (chosenFirstItem)
                 {
-                    itemChosenRight.item = inventory[currentSelectedItem];
-                    itemChosenRight.GetComponent<Image>().sprite = Resources.Load<Sprite>(inventory[currentSelectedItem]);
+                    itemChosenRight.item = inventoryLogic.GetItem(currentSelectedItem);
                     chosenFirstItem = false;
 
                     if (itemChosenLeft.item == itemChosenRight.item)
@@ -91,8 +87,7 @@ public class SoupItemList : MonoBehaviour
                 }
                 else
                 {
-                    itemChosenLeft.item = inventory[currentSelectedItem];
-                    itemChosenLeft.GetComponent<Image>().sprite = Resources.Load<Sprite>(inventory[currentSelectedItem]);
+                    itemChosenLeft.item = inventoryLogic.GetItem(currentSelectedItem);
                     itemChosenLeft.GetComponent<Animator>().Play("Stop");
                     chosenFirstItem = true;
                 }

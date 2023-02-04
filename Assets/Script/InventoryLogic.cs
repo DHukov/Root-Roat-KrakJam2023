@@ -9,14 +9,25 @@ public class InventoryLogic : MonoBehaviour
     {
         public int Id;
         public string Name;
+        public string Type;
     }
 
     public List<Item> Inventory = new List<Item>();
     public int maxItemsCount = 8;
 
+    public bool HasItem(int index)
+    {
+        return index < Inventory.Count;
+    }
+
+    public Item GetItem(int index)
+    {
+        return index < Inventory.Count ? Inventory[index] : null;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        int layer = LayerMask.NameToLayer("InventoryItem");         
+        int layer = LayerMask.NameToLayer("InventoryItem");
         // Debug.Log("Trigger");
         if (collision.gameObject.layer == layer && collision.gameObject.active)
         {
@@ -27,6 +38,7 @@ public class InventoryLogic : MonoBehaviour
                 item.Id = Inventory.Count;
                 Debug.Log("ID: " + item.Id);
                 item.Name = collision.gameObject.name;
+                item.Type = collision.gameObject.GetComponent<ItemData>().Type;
                 Inventory.Add(item);
                 Debug.Log("Inventory Count: " + Inventory.Count);
                 collision.gameObject.SetActive(false);
