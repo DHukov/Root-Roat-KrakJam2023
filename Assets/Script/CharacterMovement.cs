@@ -9,12 +9,21 @@ public class CharacterMovement : MonoBehaviour
     private float distanceToGround = 0.2f;
     private float distanceToCeiling = 0.5f;
 
+    private int playerLayerInt, platformLayerInt;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform ceilingCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask ceilingLayer;
+    private void Start()
+    {
+        playerLayerInt = LayerMask.NameToLayer("Player");
+        platformLayerInt = LayerMask.NameToLayer("Platform");
+
+        Debug.Log(playerLayerInt);
+        Debug.Log(platformLayerInt);
+    }
     void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -34,23 +43,16 @@ public class CharacterMovement : MonoBehaviour
     {
         if( rb.velocity.y > 0)
         {
-                // Debug.Log("acceleration");
             if (Physics2D.OverlapCircle(ceilingCheck.position, distanceToCeiling, ceilingLayer))
             {
                 Debug.Log("contact");
-
-                Physics2D.IgnoreLayerCollision(6, 7);
+                Physics2D.IgnoreLayerCollision(playerLayerInt, platformLayerInt, true) ;
             }
         }
         if (rb.velocity.y < 0)
         {
-                // Debug.Log("braking");
-            Physics2D.IgnoreLayerCollision(6, 7, false);
+            Physics2D.IgnoreLayerCollision(playerLayerInt, platformLayerInt, false);
         }
-
-
-
-
     }
 
 
