@@ -74,7 +74,7 @@ public class SoupItemList : MonoBehaviour
                     itemChosenRight.item = inventoryLogic.GetItem(currentSelectedItem);
                     chosenFirstItem = false;
 
-                    if (itemChosenLeft.item == itemChosenRight.item)
+                    if (itemChosenLeft.item.Type == itemChosenRight.item.Type)
                     {
                         itemChosenLeft.GetComponent<Animator>().Play("Wrong");
                         itemChosenRight.GetComponent<Animator>().Play("Wrong");

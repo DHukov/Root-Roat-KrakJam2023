@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[ExecuteInEditMode]
 public class SoupItem : MonoBehaviour
 {
     private int lastSelectedItem = 0;
@@ -25,6 +26,11 @@ public class SoupItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!inventoryLogic)
+        {
+            return;
+        }
+
         var item = inventoryLogic.GetItem(index);
         var sprite = item is null ? null : Resources.Load<Sprite>(item.Type);
 
