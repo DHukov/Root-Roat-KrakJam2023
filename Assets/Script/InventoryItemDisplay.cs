@@ -33,6 +33,6 @@ public class InventoryItemDisplay : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        Gizmos.DrawCube(transform.position, new Vector3(2, 2, 1));
+        Gizmos.DrawCube(transform.position, new Vector3(1.5f, 1.5f, 1));
     }
 }
