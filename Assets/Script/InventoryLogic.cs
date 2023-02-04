@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class InventoryLogic : MonoBehaviour
 {
-    public class Node
+
+    public List<int> Inventory = new List<int>();
+    public int maxItemsCount = 8;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
-    }
-
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Debug.Log("Trigger");
+        if(collision.gameObject.layer == 6)
+        {
+            // Debug.Log("Layer detected");
+            if(Inventory.Count + 1 < maxItemsCount)
+            {
+                Inventory.Add(Inventory.Count);
+                // Debug.Log("Inventory Count: " + Inventory.Count);
+                Destroy(collision.gameObject);
+            }
+        }
     }
 }
