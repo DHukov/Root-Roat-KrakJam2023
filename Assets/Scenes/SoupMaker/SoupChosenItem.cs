@@ -17,11 +17,16 @@ public class SoupChosenItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (item is null && lastItemType is not null)
+        if ((item is null || item.Type == string.Empty) && lastItemType is not null)
         {
             GetComponent<Image>().enabled = false;
             GetComponent<Image>().sprite = null;
             lastItemType = null;
+            return;
+        }
+
+        if ((item is null || item.Type == string.Empty))
+        {
             return;
         }
 
