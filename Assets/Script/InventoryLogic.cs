@@ -14,6 +14,11 @@ public class InventoryLogic : MonoBehaviour
     public List<Item> Inventory = new List<Item>();
     public int maxItemsCount = 8;
 
+    public void AddItem(string type)
+    {
+        Inventory.Add(new Item() { Type = type });
+    }
+
     public bool HasItem(int index)
     {
         return index < Inventory.Count;
@@ -22,6 +27,11 @@ public class InventoryLogic : MonoBehaviour
     public Item GetItem(int index)
     {
         return index < Inventory.Count ? Inventory[index] : null;
+    }
+
+    public void RemoveItem(Item item)
+    {
+        Inventory.Remove(item);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
