@@ -28,6 +28,9 @@ public class SoupItemList : MonoBehaviour
     public InventoryLogic inventoryLogic;
     public int currentSelectedItem = 0;
     public int highlightItem = -1;
+    [SerializeField] private AudioSource successSound;
+    [SerializeField] private AudioSource failedSound;
+    [SerializeField] private AudioSource craftSound;
 
     public SoupItemList()
     {
@@ -56,6 +59,7 @@ public class SoupItemList : MonoBehaviour
                 if (result is not null) {
                     itemResult.GetComponent<SoupChosenItem>().item = new InventoryLogic.Item() { Type = result };
                     itemResult.GetComponent<Animator>().Play("ResultShow");
+                    successSound.Play();
                     isShowingResult = true;
                 }
             }
@@ -158,11 +162,13 @@ public class SoupItemList : MonoBehaviour
                     {
                         itemChosenLeft.GetComponent<Animator>().Play("Wrong");
                         itemChosenRight.GetComponent<Animator>().Play("Wrong");
+                        failedSound.Play();
                     }
                     else
                     {
                         itemChosenLeft.GetComponent<Animator>().Play("OkayLeft");
                         itemChosenRight.GetComponent<Animator>().Play("OkayRight");
+                        craftSound.Play();
                         inventoryLogic.RemoveItem(itemChosenLeft.item);
                         inventoryLogic.RemoveItem(itemChosenRight.item);
                     }

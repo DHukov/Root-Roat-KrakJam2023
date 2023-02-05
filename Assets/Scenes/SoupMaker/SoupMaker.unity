@@ -446,5 +446,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoupMaker
       objectReference: {fileID: 0}
+    - target: {fileID: 7219805118819860015, guid: ba809a6ef257636e98be49ec5a51c2c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba809a6ef257636e98be49ec5a51c2c4, type: 3}
