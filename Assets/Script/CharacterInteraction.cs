@@ -3,6 +3,8 @@ using TMPro;
 
 public class CharacterInteraction : MonoBehaviour
 {
+    [SerializeField] GameObject TimeLine;
+
     private bool isInRange = false;
     [SerializeField] private TMP_Text textComponent;
     public KeyCode interactKey;
@@ -23,14 +25,18 @@ public class CharacterInteraction : MonoBehaviour
         {
             if (Input.GetKeyDown(interactKey))
             {
+                TimeLine.gameObject.active = true;
+
+                /*
                 if (index <= dialogText.Length - 1)
                 {
                     textComponent.text = dialogText[index];
                     index++;
                     //throw new System.Exception("Invalid index");
                 }
+                */
             }
-            
+
         }
     }
 
