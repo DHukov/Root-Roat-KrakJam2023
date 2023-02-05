@@ -16,12 +16,12 @@ public class SoupItemList : MonoBehaviour
     private bool isShowingResult = false;
     private string result = null;
     private List<string[]> mixables = new List<string[]> {
-        new string[] { "knife", "turnip", "cut-turnip" },
-        new string[] { "peeler", "carrot", "cut-carrot" },
-        new string[] { "ginger", "spoon", "peeled-ginger" },
-        new string[] { "beet", "pot", "borshch" },
-        new string[] { "cut-turnip", "cut-carrot", "vegetables" },
-        new string[] { "peeled-ginger", "borshch", "decoction" },
+        new string[] { "knife_2", "turnip", "cut-turnip" },
+        new string[] { "peeler", "carrot", "peeled-carrot" },
+        new string[] { "knife", "parsley", "cut-parsley" },
+        new string[] { "beetroot", "water", "borshch" },
+        new string[] { "cut-turnip", "peeled-carrot", "vegetables" },
+        new string[] { "cut-parsley", "borshch", "decoction" },
         new string[] { "vegetables", "decoction", "soup" },
     };
 

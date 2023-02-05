@@ -274,28 +274,28 @@ MonoBehaviour:
   Inventory:
   - Id: 0
     Name: 
-    Type: beet
-  - Id: 0
-    Name: 
     Type: carrot
   - Id: 0
     Name: 
-    Type: celery
+    Type: beetroot
   - Id: 0
     Name: 
-    Type: beet
+    Type: parsley
+  - Id: 0
+    Name: 
+    Type: water
   - Id: 0
     Name: 
     Type: knife
   - Id: 0
     Name: 
-    Type: knife
+    Type: turnip
   - Id: 0
     Name: 
-    Type: celery
+    Type: knife_2
   - Id: 0
     Name: 
-    Type: carrot
+    Type: peeler
   maxItemsCount: 8
 --- !u!4 &1554284948
 Transform:
