@@ -10,12 +10,26 @@ public class CharacterMovement : MonoBehaviour
     private float distanceToCeiling = 0.2f;
 
     private int playerLayerInt, platformLayerInt;
+    private bool movingOnGround;
+
+    //[SerializeField] private AudioSource audioSrc;
+
+    [SerializeField] private AudioListener audioListener;
+    [SerializeField] private AudioSource walkingSrc;
+    [SerializeField] private AudioSource jumpingSrc;
+    [SerializeField] private AudioSource landingSrc;
+    //[SerializeField] private AudioClip walkingClip;
+    //[SerializeField] private AudioClip jumpingClip;
+    //[SerializeField] private AudioClip landingClip;
+
+
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private Transform ceilingCheck;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask ceilingLayer;
+
     private void Start()
     {
         playerLayerInt = LayerMask.NameToLayer("Player");
@@ -26,23 +40,45 @@ public class CharacterMovement : MonoBehaviour
     }
     void Update()
     {
+        SoundMovingChecking();
+
         horizontal = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Jump") && GroundChecking())
         {
+            jumpingSrc.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
+       
         CielingChecking();
         Flip();
     }
+
+    private void SoundMovingChecking()
+    {
+        if (rb.velocity.x != 0 && GroundChecking())
+            movingOnGround = true;
+        else
+            movingOnGround = false;
+        if (movingOnGround)
+        {
+            if (!walkingSrc.isPlaying)
+                walkingSrc.Play();
+        }
+        else
+            walkingSrc.Stop();
+    }
+
 
     private void CielingChecking()
     {
         if( rb.velocity.y > 0)
         {
+            
             if (Physics2D.OverlapCircle(ceilingCheck.position, distanceToCeiling, ceilingLayer))
             {
                 Debug.Log("contact");
