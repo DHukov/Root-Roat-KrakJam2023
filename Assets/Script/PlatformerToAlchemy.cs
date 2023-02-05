@@ -17,9 +17,11 @@ public class PlatformerToAlchemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Triggered");
         int layer = LayerMask.NameToLayer("Player");
         if(collision.gameObject.layer == layer && collision.gameObject.active)
         {
+            Debug.Log("Player detected");
             MainCamera.gameObject.SetActive(false);
             AlchemyCamera.gameObject.SetActive(true);
             SoupMaker.SetActive(true);
