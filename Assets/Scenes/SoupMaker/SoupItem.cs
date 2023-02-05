@@ -9,6 +9,7 @@ public class SoupItem : MonoBehaviour
     private int lastSelectedItem = 0;
     private Transform inner;
     private SoupItemList itemList;
+    private InventoryLogic.Item lastItem;
 
     public InventoryLogic inventoryLogic;
     public int index;
@@ -32,22 +33,38 @@ public class SoupItem : MonoBehaviour
         }
 
         var item = inventoryLogic.GetItem(index);
-        var sprite = item is null ? null : Resources.Load<Sprite>(item.Type);
 
-        inner.GetComponent<Image>().sprite = sprite;
-
-        if (this.lastSelectedItem != itemList.currentSelectedItem)
+        if (item is null)
         {
-            var material = this.GetComponent<Image>();
+            inner.GetComponent<Image>().enabled = false;
+            inner.GetComponent<Image>().sprite = null;
+        }
+        else
+        {
+            var sprite = Resources.Load<Sprite>(item.Type);
 
-            if (this.index == itemList.currentSelectedItem)
+            inner.GetComponent<Image>().enabled = true;
+            inner.GetComponent<Image>().sprite = sprite;
+
+            if (lastItem != item)
             {
-                material.color = new Color(255, 255, 255, 100 / 255.0f);
+                inner.GetComponent<Animator>().Play("SoupItemIn");
             }
-            else
-            {
-                material.color = new Color(255, 255, 255, 50 / 255.0f);
-            }
+        }
+
+        lastItem = item;
+
+        var material = this.GetComponent<Image>();
+        material.color = new Color(255, 255, 255, 50 / 255.0f);
+
+        if (this.index == itemList.currentSelectedItem)
+        {
+            material.color = new Color(255, 255, 255, 100 / 255.0f);
+        }
+
+        if (itemList.highlightItem == index)
+        {
+            material.color = new Color(100, 255, 100, 150 / 255.0f);
         }
 
         lastSelectedItem = itemList.currentSelectedItem;
