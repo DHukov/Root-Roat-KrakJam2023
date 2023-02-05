@@ -43,8 +43,10 @@ GameObject:
   - component: {fileID: 4705778855517653046}
   - component: {fileID: 4705778855517653042}
   - component: {fileID: 4705778855517653045}
+  - component: {fileID: -245037762463659995}
   - component: {fileID: 4705778855517653040}
   - component: {fileID: 4705778855517653043}
+  - component: {fileID: 6889331974314306572}
   m_Layer: 9
   m_Name: HeroMechanik
   m_TagString: Player
@@ -158,6 +160,19 @@ CapsuleCollider2D:
   m_Offset: {x: -0.021930754, y: 0}
   m_Size: {x: 0.49559343, y: 1}
   m_Direction: 0
+--- !u!114 &-245037762463659995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705778855517653034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a29b46c8c2f89844844e779f3e28273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InventoryLogic: {fileID: 0}
 --- !u!114 &4705778855517653040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +212,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 0.9}
   m_Direction: 0
+--- !u!114 &6889331974314306572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705778855517653034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e04f97d7034da04e89d1cd76ccb9902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory: []
+  maxItemsCount: 8
 --- !u!1 &4705778856177971574
 GameObject:
   m_ObjectHideFlags: 0
