@@ -22,7 +22,7 @@ public class CharacterMovement : MonoBehaviour
     //[SerializeField] private AudioClip jumpingClip;
     //[SerializeField] private AudioClip landingClip;
 
-
+    [SerializeField] private ParticleSystem particleHero;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -67,10 +67,18 @@ public class CharacterMovement : MonoBehaviour
         if (movingOnGround)
         {
             if (!walkingSrc.isPlaying)
+            {
                 walkingSrc.Play();
+                particleHero.Play();
+            }
+
         }
         else
-            walkingSrc.Stop();
+        {
+            walkingSrc.Stop(); 
+            particleHero.Stop();
+
+        }
     }
 
 
