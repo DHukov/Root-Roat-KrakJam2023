@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c327784b827470c458c0839d08913f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
+  pauseMenuUI: {fileID: 6461903973523172665, guid: 5d20065831beed54699ef1636df5e623, type: 3}
   menuState: 0
+  Slider: {fileID: 0}
