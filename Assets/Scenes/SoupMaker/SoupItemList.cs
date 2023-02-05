@@ -77,7 +77,7 @@ public class SoupItemList : MonoBehaviour
 
                 if (result == "soup")
                 {
-                    SceneManager.LoadScene("Main menu");
+                    SceneManager.LoadScene("Ending Scene");
                 }
             }
 
