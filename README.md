@@ -5,3 +5,5 @@ Game created on KrakJam 2023, theme of this KrakJam was "Roots". We has created 
 - Daniel was responsible for Hero's Movement Mechanic, Physics, Camera work, a lot of level Designe, like projecting, balans, camera-flow etc, dialog text interface, some of sound effects, etc.
 - Przemek created Menu, Start Scene and cut scenes, UI, Music etc, picking up objects, respawned system etc.
 - Adam worked on core mechanic - craft of soup, interface for that, also GitHub Master, and programmer masterm, scene changing, etc.
+
+- For playing this game download https://dhukov.itch.io/root-roat
